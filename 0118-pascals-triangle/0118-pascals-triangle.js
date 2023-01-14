@@ -45,7 +45,7 @@ class Program {
         let i = 0;
         let k = 1;
         const firstTerm = this.pascalTriangle[0];
-        const secondTerm = this.pascalTriangle[1]
+        const secondTerm = this.pascalTriangle[1];
         
         if (this.numRows === 1)
         return [firstTerm];
