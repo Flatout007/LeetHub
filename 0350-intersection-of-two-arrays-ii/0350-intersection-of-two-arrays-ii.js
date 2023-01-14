@@ -14,7 +14,7 @@ class Program {
     
     constructor(nums1, nums2, intersectionArray, hashtable) {
         this.nums1 = nums1;
-        this.nums2 = nums2;
+        this.nums2 = nums2.sort((a,b) => a-b);
         this.intersectionArray = intersectionArray;
         this.hashtable = hashtable;
     }
