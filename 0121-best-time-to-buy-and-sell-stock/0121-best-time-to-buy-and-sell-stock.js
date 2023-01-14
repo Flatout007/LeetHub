@@ -4,32 +4,39 @@
  */
 var maxProfit = function(prices) {
     
-    // Use two pointers to loop through array
-    // since pointer b must remain in front of or equal to pointer a,
-    // if profit becomes 0, assign pointer a to become b.
+    const p = new Program(prices,0,1);
     
+    return p.maxProfit();
+};
+
+class Program {
     
-    let a = 0;
-    let b = 1;
-    let max = 0;
-    let n = prices.length;
-    
-    for (let i = 0; i<prices.length; i++) {
+    constructor(nums, a, b) {
         
-        if (a === n || b === n)
-        break;
-        
-        let profit = prices[b] - prices[a];
-        
-        max = Math.max(max, profit);
-        
-        if (profit < 0) {
-            profit = 0;
-            a = b;
-        }
-        
-        b++;
+        this.nums = nums;
+        this.a = a;
+        this.b = b;
     }
     
-    return max;
-};
+    
+    maxProfit() {
+        
+        let max = 0;
+        
+        while (this.b < this.nums.length) {
+            
+            let profit = this.nums[this.b] - this.nums[this.a];
+            
+            max = Math.max(max, profit);
+            
+            if (profit <= 0) {
+                this.a = this.b;
+                profit = 0;
+            }
+            
+            this.b++;
+        }
+        
+        return max;
+    }
+}
