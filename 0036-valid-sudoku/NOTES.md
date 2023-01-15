@@ -1,0 +1,3 @@
+- use set to store each number and see if it repeats for each row of board
+- use set to store each number and see if it repeats for each column of board
+- to get each 3x3 subarrays, use 4 loops
