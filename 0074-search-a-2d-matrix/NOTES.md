@@ -1,0 +1,1 @@
+// traverse matrix and binary search each row for target
