@@ -12,7 +12,7 @@
  */
 var mergeTwoLists = function(list1, list2) {
     
-    // use two pointers and tarverse both lists simultaneously and use the merge 
+    // use two pointers and traverse both lists simultaneously and use the merge 
     // technique to merge lists a and b 
     
     const newList = new ListNode();
