@@ -37,8 +37,6 @@ class Program {
         } else {
             return false;
         }
-        
-        
     }
 }
 
