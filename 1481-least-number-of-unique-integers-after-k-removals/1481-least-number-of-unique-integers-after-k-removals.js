@@ -48,7 +48,6 @@ class Program {
         const values = Object.values(this.hashmap).sort((a,b) => a-b);
         
         let i = 0;
-        let sum = 0;
         
         while (this.k !== 0) {
             
