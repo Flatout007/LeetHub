@@ -1,0 +1,1 @@
+This is a binary search algorithm that is looking for a number (the "target") that, when added to the current value of an array called "time," will result in a number that is divisible by 60. If the current value of "time" is less than 60, the algorithm will search the right half of the array; otherwise, it will search the left half.
