@@ -16,7 +16,7 @@ var numPairsDivisibleBy60 = function(time) {
     
     
     // two pointer:
-    // sort array, use two pointers to check if their sum is divisible by 0 then
+    // sort array, use two pointers to check if their sum is divisible by 60 then
     // increment or decrement the correct pointer, continue this loop
     // until left is greater than right
     
@@ -62,7 +62,7 @@ class Program {
         for (let i = 0; i<this.time.length; i++) {
             
             const number = this.time[i];
-            let left = i + 1;
+            let left = i + 1; // left is i+1 to avoid using same element
             let right = this.time.length-1;
             
             while (left <= right) {
