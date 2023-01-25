@@ -11,7 +11,7 @@ var minStartValue = function(nums) {
     // if value is never 0, record the minimum
     // decrement start value and loop until start value is 0
     
-    let startValue = 10000;
+    let startValue = 10000
     let min = Infinity;
     let prev = null;
     
