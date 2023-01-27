@@ -28,7 +28,7 @@ def reverse_list(head)
     end
     
     # the right most adjacent pointer will be nil before done reversing
-    # this could be replaced by an if statement during the loop, but I think this is more clean.
+    # this could be replaced during the loop, but I think this is more clean.
     mid.next = left
     left = mid
     
