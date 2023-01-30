@@ -25,7 +25,9 @@ class Program {
             
             if (this.colors[i] === 'A' && this.colors[i+1] === "A" && this.colors[i+2] === "A") {
                 this.players["alice"] += 1;
-            } else if (this.colors[i] === "B"  && this.colors[i+1] === "B" && this.colors[i+2] === "B") {
+            } 
+            
+            if (this.colors[i] === "B"  && this.colors[i+1] === "B" && this.colors[i+2] === "B") {
                 this.players["bob"] += 1;
             }
         }
