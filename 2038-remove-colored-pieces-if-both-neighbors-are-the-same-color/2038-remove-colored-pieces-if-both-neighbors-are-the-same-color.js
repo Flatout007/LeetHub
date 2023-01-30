@@ -33,9 +33,7 @@ class Program {
         }
         
         if (this.players["alice"] > this.players["bob"])  {
-            return true
-        } else if (this.players["alice"] === this.players["bob"]) {
-            return false;
+            return true;
         } else {
             return false;
         }
