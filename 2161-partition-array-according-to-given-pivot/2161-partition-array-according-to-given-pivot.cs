@@ -1,3 +1,4 @@
+
 public class Solution
 {
      
@@ -5,42 +6,84 @@ public class Solution
     {
         
         /*
-            use two pointers to traverse nums while also using two pointers to
-            store nums[i] in a new array by simultaneously comparing pointers to pivot and
-            updating pointers respectfully.
+            use three loops to check if nums[i] is less than, equal to, and greater than pivot respectfullly.
+            storing those elements in a new array.
         */
         
-        var PartedNumbers = new int[nums.Length]; 
-        var left = 0;
-        var right = nums.Length-1;
+        var newNums = new int[nums.Length];
         
-        int i,j;
-                                                                        
-        for (i = 0, j = nums.Length-1; i<nums.Length; i++, j--)   
+        var p = new Program(nums, pivot, 0, newNums);
+        
+        return p.Part();
+    }
+    
+    
+}
+
+class Program 
+{
+    public Program(int[] nums, int pivot, int k, int[] newNums)
+    {
+        this.Pivot = pivot;
+        this.N = nums.Length;
+        this.Nums = nums;
+        this.NewNums = newNums;
+        this.K = k;
+    }
+    
+    public void GetLessThan()
+    {
+        for (int i = 0; i<N; i++) 
         {
-            var numberLeft = nums[i];
-            var numberRight = nums[j];
+            var number = this.Nums[i];
             
-            if (numberLeft < pivot)
+            if (number < this.Pivot)
             {
-                PartedNumbers[left] = numberLeft;
-                left++;
-            } 
-            
-            if (numberRight > pivot)
-            {
-                PartedNumbers[right] = numberRight;
-                right--;
+                this.NewNums[this.K++] = number;
             }
         }
-        
-        while (left <= right)
-        {
-            PartedNumbers[left] = pivot;
-            
-            left++;
-        }
-        
-        return PartedNumbers;
     }
+    
+    public void GetEqualTo()
+    {
+        for (int i = 0; i<this.N; i++)
+        {
+            var number = this.Nums[i];
+            
+            if (number == this.Pivot)
+            {
+                this.NewNums[this.K++] = number;
+            }
+        }
+    }
+    
+    public void GetGreaterThan()
+    {
+        for (int i = 0; i<this.N; i++)
+        {
+            var number = this.Nums[i];
+            
+            if (number > this.Pivot)
+            {
+                this.NewNums[this.K++] = number;
+            }
+        }
+    }
+    
+    public int[] Part()
+    {
+        this.GetLessThan();
+        this.GetEqualTo();
+        this.GetGreaterThan();
+        
+        return this.NewNums;
+    }
+    
+    public int Pivot  { get; private set; }
+    public int[] Nums { get; private set; }
+    public int N {get; private set;}
+    public int[] NewNums {get; internal set;}
+    public int K {get; set;}
 }
+
+
