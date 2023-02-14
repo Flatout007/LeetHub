@@ -10,7 +10,6 @@ var merge = function(intervals) {
     between the intervals in set A and the intervals in set B.
     */
     
-    const newIntervals = [];
     let left = 0;
     let right = 1;
     
