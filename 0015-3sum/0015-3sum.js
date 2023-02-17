@@ -46,7 +46,7 @@ var threeSum = function(nums) {
 }
     
   
-  /**@Rererence */  
+  /**@Reference */  
  //     // sort nums
 //     // use three pointers at i + 0, i + 1, n-1
 //     // for nums[i] 
