@@ -23,7 +23,7 @@ class Program {
         let R = right;
         
         // unitl L is less than 0 AND R is equal to length of string AND
-        // the character at index L equals the character at index R,
+        // until the character at index L does not equal the character at index R,
         // Decrement L and Increment R 
         while (L !== -1 && R !== this.s.length && this.s[L] === this.s[R]) {
             L--;
