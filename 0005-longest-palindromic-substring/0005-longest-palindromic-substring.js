@@ -55,7 +55,7 @@ class Program {
             // get the max length between the two lengths
             const len = Math.max(len1, len2);
             
-            // if the max length is greater than the current subarray window
+            // if the max length is greater than the current subarray length
             if (len > this.end - this.start) {
                 
                 // update start index so that it represents the middle of the current subarray string.
