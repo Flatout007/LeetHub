@@ -4,88 +4,58 @@
  */
 var threeSum = function(nums) {
     
- nums.sort((a,b) => a-b);   
-     
- const arr = [];
- // use set to track duplicates   
- const set = new Set(); 
+    const output = [];
     
- for (let i = 0; i<nums.length; i++) {
+    // sort nums by non-decreasing order
+    nums.sort((a,b) => a-b);
     
-     let left = i+1;
-     let right = nums.length-1;
-     
-     while (left < right) {
-         
-         const sum = nums[i] + nums[left] + nums[right];
-         const validNumbers = [nums[i], nums[left], nums[right]];
-         // turn valid numbers into a lookup string for a set to avoid duplicates
-         const key = `${nums[i]}${nums[left]}${nums[right]}`;
+    // use a for loop to do a linear search through nums
+    for (let i = 0; i<nums.length && nums[i] <= 0; i++) {
         
-         if (sum === 0) {
-             
-             if (set.has(key)) {
-                 // do nothing
-             }
-             else {
-                 arr.push(validNumbers);
-             }
-             
-             left++; right--;
-             set.add(key);
-             
-         } else if (sum < 0) {
-             left++;
-         } else {
-             right--;
-         }
-     }  
- }
+        // if the current index is 0 OR
+        // the current element is not the same as the one before it
+        if (i === 0 || nums[i] !== nums[i-1]) {
+            // since array is sorted, use a while loop to do an intelligent search to find zero sum.
+            findSum(nums, i, output);
+        }
+    }
     
- return arr;   
+    return output;
+};
+
+var findSum = function(nums, i, output) {
+    
+    let lo = i+1;
+    let hi = nums.length-1;
+    
+    // while lo pointer is less than hi
+    while (lo < hi) {
+        
+        const sum = nums[i] + nums[lo] + nums[hi];
+        
+        // else, if sum is less than 0, increment lo to find a greater value
+        if (sum < 0) {
+            lo++;
+        }
+        // else, the sum is greater than 0, so decrement the hi pointer to find a smaller value
+        else if (sum > 0) {
+            hi--
+        }
+        // if sum equals zero, add to output array, increment lo, decrement hi
+        else if (sum === 0) {
+            
+            output.push([nums[i], nums[lo], nums[hi]]);
+            
+            lo++;
+            hi--;
+            
+            // while lo is less than hi AND element at index lo is 
+            // the same as the previous element at index lo
+            while (lo < hi && nums[lo] === nums[lo-1]) {
+                lo++;
+            }
+        } 
+    
+    }
 }
-    
-  
-  /**@Reference */  
- //     // sort nums
-//     // use three pointers at i + 0, i + 1, n-1
-//     // for nums[i] 
-//     // if numbers sum to target update all three pointers
-//     // else update only l and m pointers
-//     // until r < m 
-    
-//     nums.sort((a,b) => a-b);
-    
-//     let l = 0, m = 1, r = nums.length-1;
-//     let string = "";
-//     const arr = [];
-//     const set = new Set();
-    
-//     while (r > m) {
-        
-//         const sum = nums[l] + nums[m] + nums[r];
-    
-//             if (sum === 0) {
-                
-//                 // convert to string to check if array is a duplicate
-//                 string += nums[l], string += nums[m]; string += nums[r];
 
-//                 if (!set.has(string)) {
-//                     arr.push([nums[l], nums[m], nums[r]]);
-//                 }
-                
-//                 set.add(string);
-//                 string = "";
-//                 l++; m++; r--;
-//             } else {
-//                 if (sum < 0) {
-//                     l++; m++
-
-//                 } else if (sum > 0) {
-//                     r--;
-
-//                 }
-//             }
-//      }
-    
-//     return arr;   
